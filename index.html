@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Example</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://rawcdn.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="app.js" defer></script>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        .slider-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+            z-index: 1000;
+        }
+        input[type="range"] {
+            margin-bottom: 5px;
+            width: 200px;
+        }
+        label {
+            margin-bottom: 5px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <label for="ambientIntensity">Ambient Light Intensity</label>
+        <input type="range" id="ambientIntensity" min="0" max="2" step="0.1" value="0.5">
+
+        <label for="directionalIntensity">Directional Light Intensity</label>
+        <input type="range" id="directionalIntensity" min="0" max="2" step="0.1" value="0.6">
+
+        <label for="ambientColor">Ambient Light Color</label>
+        <input type="color" id="ambientColor" value="#ffffff">
+
+        <label for="directionalColor">Directional Light Color</label>
+        <input type="color" id="directionalColor" value="#ffffff">
+
+        <label for="backgroundColor">Background Color</label>
+        <input type="color" id="backgroundColor" value="#ECECEC">
+
+        <label for="backgroundAlpha">Background Alpha</label>
+        <input type="range" id="backgroundAlpha" min="0" max="1" step="0.1" value="1">
+
+        <button id="addDirectionalLight">Add Directional Light</button>
+        <button id="removeDirectionalLight">Remove Directional Light</button>
+    </div>
+
+    <a-scene embedded arjs>
+        <a-assets>
+            <a-asset-item id="modelHiro" src="assets/models/european_dragon/scene.gltf"></a-asset-item>
+            <a-asset-item id="modelKanji" src="assets/models/Knight/scene.gltf"></a-asset-item>
+            <a-asset-item id="modelLetterA" src="assets/models/Indio/scene.gltf"></a-asset-item>
+            <a-asset-item id="modelLetterB" src="assets/models/Soldado/scene.gltf"></a-asset-item>
+            <a-asset-item id="modelLetterC" src="assets/models/Vaquero/scene.gltf"></a-asset-item>
+            <a-asset-item id="modelLetterD" src="assets/models/Romano/scene.gltf"></a-asset-item>
+            <a-asset-item id="modelLetterF" src="assets/models/Caballería/scene.gltf"></a-asset-item>
+
+            <!-- Shaders -->
+            <script id="vertexShader" type="x-shader/x-vertex" src="vertexShader.glsl"></script>
+            <script id="fragmentShader" type="x-shader/x-fragment" src="fragmentShader.glsl"></script>
+        </a-assets>
+
+        <!--Configuración del entorno y las luces -->
+        <a-sky id="sky" color="#ECECEC"></a-sky>
+        <a-light id="ambientLight" type="ambient" color="#ffffff" intensity="0.5"></a-light>
+        <a-light id="directionalLight" type="directional" color="#ffffff" intensity="0.6" position="1 1 1"></a-light>
+
+
+        <a-marker preset="hiro">
+            <!-- Modelo 3D dinámico para el marcador Hiro -->
+            <a-entity id="dynamic-model-hiro" gltf-model="#modelHiro" scale="3 3 3" position="0 0 0" rotation="0 0 0" shadow="receive: true"></a-entity>
+        </a-marker>
+
+        <a-marker preset="kanji">
+            <!-- Modelo 3D dinámico para el marcador Kanji -->
+            <a-entity id="dynamic-model-kanji" gltf-model="#modelKanji" scale="0.01 0.01 0.01" position="0 0 0" rotation="0 180 0" shadow="receive: true"></a-entity>
+        </a-marker>
+
+        <!-- Agregar los marcadores de letra A hasta F -->
+        <a-marker type="pattern" url="assets/markers/pattern-letterA.patt">
+            <a-entity id="dynamic-model-letterA" gltf-model="#modelLetterA" scale="0.01 0.01 0.01" position="0 0 0" rotation="0 0 0" shadow="receive: true"></a-entity>
+        </a-marker>
+        <a-marker type="pattern" url="assets/markers/pattern-letterB.patt">
+            <a-entity id="dynamic-model-letterB" gltf-model="#modelLetterB" scale="0.02 0.02 0.02" position="0 0 0" rotation="0 0 0" shadow="receive: true"></a-entity>
+        </a-marker>
+        <a-marker type="pattern" url="assets/markers/pattern-letterC.patt">
+            <a-entity id="dynamic-model-letterC" gltf-model="#modelLetterC" scale="0.01 0.01 0.01" position="0 0 0" rotation="0 0 0" shadow="receive: true"></a-entity>
+        </a-marker>
+        <a-marker type="pattern" url="assets/markers/pattern-letterD.patt">
+            <a-entity id="dynamic-model-letterD" gltf-model="#modelLetterD" scale="0.01 0.01 0.01" position="0 0 0" rotation="0 0 0" shadow="receive: true"></a-entity>
+        </a-marker>
+        <a-marker type="pattern" url="assets/markers/pattern-letterF.patt">
+            <a-entity id="dynamic-model-letterF" gltf-model="#modelLetterF" scale="0.01 0.01 0.01" position="0 0 0" rotation="0 0 0" shadow="receive: true"></a-entity>
+        </a-marker>
+    </a-scene>
+
+</body>
+</html>
