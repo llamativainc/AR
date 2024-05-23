@@ -59,13 +59,8 @@
 
     <a-scene embedded arjs>
         <a-assets>
-            <a-asset-item id="modelHiro" src="https://drive.google.com/drive/folders/1gXK4MMWp1lElJapBVRz3lrli6WblVn0V?usp=drive_link/european_dragon/scene.gltf"></a-asset-item>
-            <a-asset-item id="modelKanji" src="https://drive.google.com/drive/folders/1taj7WZ6MWg9FtJVi9cdl1kM0wqG2KIgM?usp=drive_link/Indio/scene.gltf"></a-asset-item>
-            <a-asset-item id="modelLetterA" src="https://drive.google.com/drive/folders/1gSsh7btcMLyeOhHm8OW_c9XrvjhG-zS_?usp=drive_link/Knight/scene.gltf"></a-asset-item>
-            <a-asset-item id="modelLetterB" src="https://drive.google.com/drive/folders/15q7ksiEawq8sde4k8K_f5mGhmcvkcNPR?usp=drive_link/Soldado/scene.gltf"></a-asset-item>
-            <a-asset-item id="modelLetterC" src="https://drive.google.com/drive/folders/1MQmGoy5L8UKFpEPeHQKLOet6nNG2KtUW?usp=drive_link/Romano/scene.gltf"></a-asset-item>
-            <a-asset-item id="modelLetterD" src="https://drive.google.com/drive/folders/1JY57445m3mu5GKI7qrM5QQuoNi6T59yW?usp=drive_link/Vaquero/scene.gltf"></a-asset-item>
-            <a-asset-item id="modelLetterF" src="https://drive.google.com/drive/folders/1lDoPxT90P-wSx3OpHosgyOhxSRHFJ647?usp=drive_link/Caballería/scene.gltf"></a-asset-item>
+            <a-asset-item id="modelHiro" src="https://drive.google.com/uc?id=1shjgxT47uT699IpLXscU4BSGff1x43Kn&export=download"></a-asset-item>
+
         </a-assets>
 
         <!--Configuración del entorno y las luces -->
@@ -77,27 +72,7 @@
             <!-- Modelo 3D dinámico para el marcador Hiro -->
             <a-entity id="dynamic-model-hiro" gltf-model="#modelHiro" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0" shadow="receive: true"></a-entity>
         </a-marker>
-        
-        <a-marker preset="kanji">
-            <!-- Modelo 3D dinámico para el marcador Kanji -->
-            <a-entity id="dynamic-model-kanji" gltf-model="#modelKanji" scale="12 12 12" position="0 0 0" rotation="0 0 0" shadow="receive: true"></a-entity>
-        </a-marker>
-        
-        <!-- Agregar los marcadores de letra A hasta F -->
-        <a-marker type="pattern" url="https://drive.google.com/drive/folders/1C3L7v__ba8M7OvE25YS0SYMXP1HT4sFq?usp=drive_link/markers/pattern-letterA.patt">
-            <a-entity id="dynamic-model-letterA" gltf-model="#modelLetterA" scale="10 10 10" position="0 0 0" rotation="0 0 0" shadow="receive: true"></a-entity>
-        </a-marker>
-        <a-marker type="pattern" url="https://drive.google.com/drive/folders/1C3L7v__ba8M7OvE25YS0SYMXP1HT4sFq?usp=drive_linkmarkers/pattern-letterB.patt">
-            <a-entity id="dynamic-model-letterB" gltf-model="#modelLetterB" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0" shadow="receive: true"></a-entity>
-        </a-marker>
-        <a-marker type="pattern" url="https://drive.google.com/drive/folders/1C3L7v__ba8M7OvE25YS0SYMXP1HT4sFq?usp=drive_link/markers/pattern-letterC.patt">
-            <a-entity id="dynamic-model-letterC" gltf-model="#modelLetterC" scale="0.2 0.2 0.2" position="0 0 0" rotation="0 0 0" shadow="receive: true"></a-entity>
-        </a-marker>
-        <a-marker type="pattern" url="https://drive.google.com/drive/folders/1C3L7v__ba8M7OvE25YS0SYMXP1HT4sFq?usp=drive_link/markers/pattern-letterD.patt">
-            <a-entity id="dynamic-model-letterD" gltf-model="#modelLetterD" scale="0.04 0.04 0.04" position="0 0 0" rotation="0 0 0" shadow="receive: true"></a-entity>
-        </a-marker>
-        <a-marker type="pattern" url="https://drive.google.com/drive/folders/1C3L7v__ba8M7OvE25YS0SYMXP1HT4sFq?usp=drive_link/markers/pattern-letterF.patt">
-            <a-entity id="dynamic-model-letterF" gltf-model="#modelLetterF" scale="2 2 2" position="0 0 0" rotation="0 0 0" shadow="receive: true"></a-entity>
+     
         </a-marker>
         </a-scene>
         </body>
